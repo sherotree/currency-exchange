@@ -4,23 +4,28 @@ export function Exchange() {
   const [money, setMoney] = useState(100)
 
   function handleChange(e) {
+    console.log(e)
     setMoney(e.target.value)
   }
   return (
     <div>
-      <RMB onChange={handleChange} />
-      <Dollar />
-      <Yen />
+      {/* 你传下去的名字是onChange,注意看清楚自己传的时候叫什么名字 */}
+      <RMB onChange={handleChange} money={money} />
+      <Dollar money={money} />
+      <Yen money={money} />
     </div>
   )
 }
 
 function RMB(props) {
-  const { money } = props
+  function handleChange(e) {
+    props.onChange(e)
+  }
+  // 这个money拿不到的，因为你调用的时候没有传递
   return (
     <div>
       <span>人民币</span>
-      <input value={money} onChange={props.handleChange} />
+      <input value={props.money} onChange={e => handleChange(e)} />
     </div>
   )
 }
