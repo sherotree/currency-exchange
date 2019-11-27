@@ -1,0 +1,9 @@
+.wrapper {
+  margin: 100px auto;
+  color: white;
+}
+
+.text {
+  display: inline-block;
+  text-align: right;
+}
