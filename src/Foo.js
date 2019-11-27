@@ -4,7 +4,7 @@ export function Exchange() {
   const [money, setMoney] = useState(100)
 
   function handleChange(e) {
-    console.log(e)
+    // console.log(e)
     setMoney(e.target.value)
   }
   return (
@@ -19,13 +19,14 @@ export function Exchange() {
 
 function RMB(props) {
   function handleChange(e) {
+    console.log(e)
     props.onChange(e)
   }
   // 这个money拿不到的，因为你调用的时候没有传递
   return (
     <div>
       <span>人民币</span>
-      <input value={props.money} onChange={e => handleChange(e)} />
+      <input value={props.money} onChange={handleChange} />
     </div>
   )
 }
