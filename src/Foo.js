@@ -12,7 +12,7 @@ export function Exchange() {
     <div className="wrapper">
       <h1>货币兑换</h1>
       {/* 你传下去的名字是onChange,注意看清楚自己传的时候叫什么名字 */}
-      <div className="content">
+      <div>
         <RMB className="currency" handleChange={handleChange} money={money} />
         <Dollar
           className="currency"
@@ -33,7 +33,7 @@ function RMB(props) {
   // }
   // 这个money拿不到的，因为你调用的时候没有传递
   return (
-    <div>
+    <div className="content">
       <span className="text">人民币</span>
       <input value={money} onChange={handleChange} />
     </div>
@@ -48,7 +48,7 @@ function Dollar(props) {
     return (money * 0.14).toFixed(2)
   }
   return (
-    <div>
+    <div className="content">
       <span className="text">美元</span>
       <input value={dollarChange()} onChange={handleChange} disabled />
     </div>
@@ -61,7 +61,7 @@ function Yen(props) {
     return (money * 15.5).toFixed(2)
   }
   return (
-    <div>
+    <div className="content">
       <span className="text">日元</span>
       {/* 这个yenChange是个方法，你给value需要执行返回值，不然就只是一个函数 */}
       {/* 接下来就是onChange要调用相应的方法才能使每个输入框起作用 */}
